@@ -28,18 +28,22 @@ extension ContextMenu {
         /// The position relative to the source view (if provided).
         let position: Position
 
+        let canTapToDismiss: Bool
+
         public init(
             durations: AnimationDurations = AnimationDurations(),
             containerStyle: ContainerStyle = ContainerStyle(),
             menuStyle: MenuStyle = .default,
             hapticsStyle: HapticFeedbackStyle? = nil,
-            position: Position = .default
+            position: Position = .default,
+            canTapToDismiss: Bool = true
             ) {
             self.durations = durations
             self.containerStyle = containerStyle
             self.menuStyle = menuStyle
             self.hapticsStyle = hapticsStyle
             self.position = position
+            self.canTapToDismiss = canTapToDismiss
         }
     }
 

@@ -138,9 +138,11 @@ class ContextMenuPresentationController: UIPresentationController {
 
         containerView.insertSubview(overlayView, at: 0)
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
-        tap.cancelsTouchesInView = false
-        containerView.addGestureRecognizer(tap)
+        if item.options.canTapToDismiss {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(onTap(recognizer:)))
+            tap.cancelsTouchesInView = false
+            containerView.addGestureRecognizer(tap)
+        }
 
         overlayView.alpha = 0
         coordinator.animate(alongsideTransition: { _ in
