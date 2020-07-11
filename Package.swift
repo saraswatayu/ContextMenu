@@ -1,15 +1,20 @@
-// swift-tools-version:5.0
+// swift-tools-version:0.4
 
 import PackageDescription
 
-let pkg = Package(name: "ContextMenu")
-pkg.platforms = [
-   .iOS(.v10)
-]
-pkg.products = [
-    .library(name: "ContextMenu", targets: ["ContextMenu"]),
-]
-
-let pmk: Target = .target(name: "ContextMenu")
-pmk.path = "ContextMenu"
-pkg.swiftLanguageVersions = [.v5]
+let package = Package(
+    name: "ContextMenu",
+    platforms: [
+        .iOS(.v10)
+    ],
+    products: [
+        .library(name: "ContextMenu", targets: ["ContextMenu"]),
+    ],
+    targets: [
+        .target(name: "ContextMenu", path: "ContextMenu"),
+        .testTarget(name: "ContextMenuTests", dependencies: ["ContextMenu"]),
+    ],
+    swiftLanguageVersions: [
+        .v5
+    ]
+)
